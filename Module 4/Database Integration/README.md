@@ -16,6 +16,9 @@ Copy `.env.example` to `.env` with a local PostgreSQL URL. The schema is intenti
 ```bash
 npm run prisma:format
 npm run prisma:validate
+npm run prisma:generate
+npm run prisma:migrate
+npm run prisma:seed
 ```
 
-Read the platform question before editing. Do not add platform-only `question.md`, answer files, tests, or specs to this repository. Never commit `.env` or real credentials.
+`prisma:migrate` applies the committed migration history. `prisma:seed` safely resets the local tables and inserts two example posts. Never commit `.env` or real credentials.
