@@ -24,3 +24,7 @@ Complete the TODOs in:
 Required endpoints: `POST /auth/login`, `GET /auth/me`, `POST /auth/logout`.
 
 Use Postman cookie jar or curl `-c cookies.txt` and `-b cookies.txt` to preserve the cookie between requests.
+
+The session store in `src/session/sessionStore.js` is an in-memory learning implementation:
+restarting the process clears sessions, and multiple application instances cannot share it.
+Production deployments should use a shared expiring store such as Redis.
