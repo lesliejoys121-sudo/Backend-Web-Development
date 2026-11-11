@@ -1,1 +1,12 @@
-const config = require('../config');\n\nmodule.exports = function errorHandler(err, req, res, next) {\n  const status = err.statusCode || 500;\n  const body = { error: err.message || 'Internal Server Error' };\n\n  if (config.nodeEnv !== 'production' && err.stack) {\n    body.stack = err.stack;\n  }\n\n  res.status(status).json(body);\n};\n
+const config = require('../config');
+
+module.exports = function errorHandler(err, req, res, next) {
+  const status = err.statusCode || 500;
+  const body = { error: err.message || 'Internal Server Error' };
+
+  if (config.nodeEnv !== 'production' && err.stack) {
+    body.stack = err.stack;
+  }
+
+  res.status(status).json(body);
+};
