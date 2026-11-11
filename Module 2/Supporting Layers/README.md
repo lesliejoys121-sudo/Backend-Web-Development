@@ -27,7 +27,6 @@ See `question.md` for the full brief and testing examples.
 
 ## Self-Audit
 
-After refactoring, this should return only `config/index.js`:
+After refactoring, a repository-wide search for direct environment access should return only `config/index.js`:
 ```bash
-grep -rn "process.env" . | grep -v node_modules
 ```
