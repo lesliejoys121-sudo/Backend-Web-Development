@@ -1,0 +1,1 @@
+class AppError extends Error {\n  constructor(message, statusCode) {\n    super(message);\n    this.statusCode = statusCode;\n    this.isOperational = true;\n  }\n}\n\nmodule.exports = AppError;\n
