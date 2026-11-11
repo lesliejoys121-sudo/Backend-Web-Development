@@ -1,1 +1,24 @@
-const express = require('express');\nconst router = express.Router();\nconst ctrl = require('./../controllers/articlesController');\nconst asyncHandler = require('../utils/asyncHandler');\nconst validateRequest = require('../utils/validateRequest');\nconst { createArticle, updateArticle } = require('../validators/article.validator');\n\nrouter.get('/', asyncHandler(ctrl.list));\n\nrouter.post(\n  '/',\n  createArticle,\n  validateRequest,\n  asyncHandler(ctrl.create)\n);\n\nrouter.patch(\n  '/:id',\n  updateArticle,\n  validateRequest,\n  asyncHandler(ctrl.update)\n);\n\nmodule.exports = router;\n
+const express = require('express');
+const router = express.Router();
+const ctrl = require('./../controllers/articlesController');
+const asyncHandler = require('../utils/asyncHandler');
+const validateRequest = require('../utils/validateRequest');
+const { createArticle, updateArticle } = require('../validators/article.validator');
+
+router.get('/', asyncHandler(ctrl.list));
+
+router.post(
+  '/',
+  createArticle,
+  validateRequest,
+  asyncHandler(ctrl.create)
+);
+
+router.patch(
+  '/:id',
+  updateArticle,
+  validateRequest,
+  asyncHandler(ctrl.update)
+);
+
+module.exports = router;
