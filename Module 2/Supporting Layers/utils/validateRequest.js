@@ -1,0 +1,1 @@
+const { validationResult } = require('express-validator');\nconst AppError = require('./AppError');\n\nmodule.exports = (req, res, next) => {\n  const errors = validationResult(req);\n  if (!errors.isEmpty()) {\n    return next(new AppError('Validation failed', 422));\n  }\n  next();\n};\n
