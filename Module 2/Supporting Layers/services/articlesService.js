@@ -1,1 +1,19 @@
-const repo = require('./../repository/articlesRepo');\nconst AppError = require('../utils/AppError');\nconst config = require('../config');\n\nexports.getAll = async () => repo.findAll();\n\nexports.create = async ({ title, body }) => {\n  const count = await repo.count();\n  if (count >= config.maxArticles) {\n    throw new AppError('Article limit reached', 403);\n  }\n  return repo.insert({ title, body });\n};\n\nexports.update = async (id, data) => {\n  const article = await repo.findById(id);\n  if (!article) throw new AppError('Article not found', 404);\n  return repo.update(id, data);\n};\n
+const repo = require('./../repository/articlesRepo');
+const AppError = require('../utils/AppError');
+const config = require('../config');
+
+exports.getAll = async () => repo.findAll();
+
+exports.create = async ({ title, body }) => {
+  const count = await repo.count();
+  if (count >= config.maxArticles) {
+    throw new AppError('Article limit reached', 403);
+  }
+  return repo.insert({ title, body });
+};
+
+exports.update = async (id, data) => {
+  const article = await repo.findById(id);
+  if (!article) throw new AppError('Article not found', 404);
+  return repo.update(id, data);
+};
