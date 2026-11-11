@@ -1,3 +1,5 @@
+const store = require('../data/postStore');
+
 function listPosts(query = {}) {
   const pageValue = Number.parseInt(query.page, 10);
   const limitValue = Number.parseInt(query.limit, 10);
