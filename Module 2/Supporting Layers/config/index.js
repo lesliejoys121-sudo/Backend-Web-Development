@@ -1,1 +1,6 @@
-module.exports = {\n  port: process.env.PORT || 3000,\n  nodeEnv: process.env.NODE_ENV || 'development',\n  jwtSecret: process.env.JWT_SECRET || 'dev-secret-change-in-production',\n  maxArticles: parseInt(process.env.MAX_ARTICLES, 10) || 50\n};\n
+module.exports = {
+  port: process.env.PORT || 3000,
+  nodeEnv: process.env.NODE_ENV || 'development',
+  jwtSecret: process.env.JWT_SECRET || 'dev-secret-change-in-production',
+  maxArticles: parseInt(process.env.MAX_ARTICLES, 10) || 50
+};
