@@ -1,1 +1,17 @@
-const express = require('express');\nconst articlesRouter = require('./routes/articles');\nconst errorHandler = require('./middleware/errorHandler');\nconst config = require('./config');\n\nconst app = express();\napp.use(express.json());\n\napp.use('/articles', articlesRouter);\n\napp.use(errorHandler);\n\napp.listen(config.port, () => {\n  console.log(`articles-api listening on http://localhost:${config.port}`);\n});\n\nmodule.exports = app;\n
+const express = require('express');
+const articlesRouter = require('./routes/articles');
+const errorHandler = require('./middleware/errorHandler');
+const config = require('./config');
+
+const app = express();
+app.use(express.json());
+
+app.use('/articles', articlesRouter);
+
+app.use(errorHandler);
+
+app.listen(config.port, () => {
+  console.log(`articles-api listening on http://localhost:${config.port}`);
+});
+
+module.exports = app;
